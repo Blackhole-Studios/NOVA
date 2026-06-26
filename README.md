@@ -18,14 +18,16 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 ![Architecture](https://img.shields.io/badge/Architecture-16--bit-orange)
 ![Assembler](https://img.shields.io/badge/Assembler-Python-yellow)
 ![License](https://img.shields.io/badge/License-MIT-purple)
+![Scratch]
 
 </div>
 
 ---
 
-# 🚀 What is NOVA?
+# What is NOVA?
 
 **NOVA** is a complete virtual computer built from scratch inside **Scratch/TurboWarp**.
+**NOVA** also stand for "NEW OPERATIONAL VIRTUAL ARCHITECHTURE" 
 
 Rather than emulating an existing CPU, NOVA introduces an entirely original architecture featuring its own:
 
@@ -42,23 +44,23 @@ Every instruction executed by NOVA is interpreted by a CPU built entirely from S
 
 ---
 
-# ✨ Features
+# Features
 
-* 🧠 Custom CPU architecture
-* 📜 Original assembly language (**NOVASM**)
-* 🔢 Decimal machine code
-* 💾 Virtual RAM
-* 📦 Hardware stack
-* ⚡ Interrupt support
-* 🖥️ Boot ROM
-* 💿 Disk bootloader
-* 🔧 Python assembler
-* 📁 External ROM loading
-* 🎯 Deterministic execution
+* Custom CPU architecture
+* Original assembly language (**NOVASM**)
+* Decimal machine code
+* Virtual RAM
+* Hardware stack
+* Interrupt support
+* Boot ROM
+* Disk bootloader
+* Blazing fast Python assembler
+* External ROM loading
+* Deterministic execution
 
 ---
 
-# 🏗 Architecture
+# Architecture
 
 ```text
               +------------------+
@@ -83,26 +85,26 @@ Every instruction executed by NOVA is interpreted by a CPU built entirely from S
 
 ---
 
-# 🧠 CPU
+# CPU
 
 The NOVA CPU executes machine code directly from RAM.
 
 Current capabilities include:
 
-* Register operations
-* Integer arithmetic
+* Register operations [MOV, MOVI]
+* Integer arithmetic [ADD, SUB, MUL, DIV]
 * Memory access
-* Conditional branching
+* Conditional branching [JMP, JZ, CMP...]
 * Procedure calls
-* Interrupts
-* Stack manipulation
-* Binary logic
-* Hardware I/O
+* Interrupts [in Process]
+* Stack manipulation [PUSH, POP, CALL, RET]
+* Binary logic [AND, OR, NOT on decimals]
+* Hardware I/O [HDD, USB, WIFI]
 * HALT instruction
 
 ---
 
-# 📖 NOVASM
+# NOVASM (NOVA - ASM)
 
 Example program:
 
@@ -132,7 +134,7 @@ Compiled machine code:
 
 ---
 
-# 🧩 Instruction Set
+# Instruction Set
 
 Current instruction count:
 
@@ -150,7 +152,7 @@ Current instruction count:
 
 ---
 
-# 💾 Memory Model
+# Memory Model
 
 NOVA separates hardware into independent components.
 
@@ -158,7 +160,7 @@ NOVA separates hardware into independent components.
 * RAM
 * Stack
 * Boot ROM
-* Disk
+* Disk [HDD & USB]
 * I/O
 
 Each behaves like its own hardware device and communicates over a simulated bus.
@@ -171,13 +173,22 @@ Each behaves like its own hardware device and communicates over a simulated bus.
 Power On
     │
     ▼
-Boot ROM
+RAM initializes along with HDD/USB to prevent early overwrites
     │
     ▼
-Load Bootloader
+Boot ROM into sector 1 of RAM
     │
     ▼
-Search Boot Disk
+CPU boots ROM by executing with Program Counter = 1
+    │
+    ▼
+Searches all hardware devices for a bootloader
+    │
+    ▼
+Grabs first bootloader (USB before HDD)
+    │
+    ▼
+Search disk with bootloader for a bootable Kernel
     │
     ▼
 Load Kernel into RAM
@@ -188,33 +199,37 @@ Jump to Kernel
 
 ---
 
-# 📂 Repository Structure
+# Repository Structure
 
 ```text
 NOVA/
 │
-├── Assembler/
-│   ├── ASMtoMAC.py
-│   └── examples/
+├── Work Files/
+│   ├── ErrTrace.txt [previous execution call]
+│   └── instruction-set.txt 
 │
 ├── Scratch/
-│   ├── CPU.sb3
-│   ├── RAM.sb3
-│   ├── Stack.sb3
-│   └── BootROM.sb3
+│   ├── //CPU.
+│   ├── //RAM.
+│   ├── NOVA.sb3 [Turbowarp Project]
+│   └── //BootROM.
 │
 ├── Kernel/
+│   └── No kernel is currently programmed.
 │
 ├── Documentation/
+│   └── instruction-set.txt 
 │
 ├── Programs/
+│   ├── boot.dimg [simple boot ROM program]
+│   └── boot2.dimg [complex boot ROM program]
 │
 └── README.md
 ```
 
 ---
 
-# 🛠 Current Progress
+# Current Progress
 
 * ✅ CPU
 * ✅ Machine code decoder
@@ -222,8 +237,8 @@ NOVA/
 * ✅ RAM hardware
 * ✅ Stack hardware
 * ✅ Boot ROM
-* ✅ Python assembler
-* ✅ HALT instruction
+* 🔄 Python assembler
+* 🔄 HALT instruction
 * 🔄 Bootloader
 * 🔄 Kernel
 * ⏳ File system
@@ -232,7 +247,7 @@ NOVA/
 
 ---
 
-# 🎯 Goals
+# Goals
 
 * Complete operating system
 * Executable applications
@@ -242,32 +257,35 @@ NOVA/
 * Developer tools
 * Debugger
 * Emulator improvements
+* Community Generated Programs
 
 ---
 
-# 📊 Design Philosophy
+# Design Philosophy
 
 NOVA is designed to be:
 
 * Simple enough to understand
 * Powerful enough to write an operating system
-* Built from first principles
+* Built from FIRST principles
 * Educational
 * Fun to hack on
 
-Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions.
+Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions, which allows it to run in Turbowarp (an accelerated modified version of [Scratch](https://scratch.edu.org))
 
 ---
 
-# 🤝 Contributing
+# Contributing
 
 Contributions, bug reports, feature ideas, and pull requests are welcome.
 
 If you discover a bug in the CPU, assembler, or operating system, feel free to open an issue.
 
+As well, NOVA wouldn't be impressive unless a community helps to program on the platform, so exterior contributions are welcome and can be pulled into /programs as well as under their working OS.
+
 ---
 
-# 📜 License
+# ~License~
 
 This project is licensed under the MIT License.
 
@@ -277,8 +295,8 @@ This project is licensed under the MIT License.
 
 ## 🌌 NOVA
 
-**"Because sometimes building the computer is more fun than using one."**
+**"Simplicity is the prerequisite to Reliability" - Edgar Djikstra**
 
-Made with ❤️ in Scratch.
+Made with ❤️ in Scratch and Turbowarp.
 
 </div>
