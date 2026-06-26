@@ -1,0 +1,222 @@
+; ============================================================
+; NOVA Operating System Kernel
+; Version : 0.0.1
+; Status  : Prototype
+;
+; This file demonstrates the intended structure of a NOVA
+; kernel. Most routines are placeholders.
+; ============================================================
+
+
+; ------------------------------------------------------------
+; Boot Entry
+; ------------------------------------------------------------
+
+START:
+
+    ; Initialize kernel registers
+
+    MOVI 0 0
+    MOVI 1 0
+    MOVI 2 0
+    MOVI 3 0
+    MOVI 4 0
+    MOVI 5 0
+    MOVI 6 0
+    MOVI 7 0
+    MOVI 8 0
+    MOVI 9 0
+
+    ; Initialize kernel memory
+
+    ; TODO:
+    ; - Clear system RAM
+    ; - Build memory table
+    ; - Initialize stack
+    ; - Verify boot device
+
+    ; Continue to kernel initialization
+
+    MOVI 0 INIT
+    JMP 0
+
+
+; ------------------------------------------------------------
+; Kernel Initialization
+; ------------------------------------------------------------
+
+INIT:
+
+    ; Detect available devices
+
+    ; TODO:
+    ; Scan ports
+    ; Detect timers
+    ; Detect keyboard
+    ; Detect storage
+
+    ; Load interrupt table
+
+    ; TODO
+
+    ; Load scheduler
+
+    ; TODO
+
+    MOVI 0 MAIN
+    JMP 0
+
+
+; ------------------------------------------------------------
+; Main Kernel Loop
+; ------------------------------------------------------------
+
+MAIN:
+
+    ; Poll hardware
+
+    ; TODO
+
+    ; Process interrupts
+
+    ; TODO
+
+    ; Run scheduler
+
+    ; TODO
+
+    ; Execute next task
+
+    ; TODO
+
+    ; Housekeeping
+
+    ; TODO
+
+    MOVI 0 MAIN
+    JMP 0
+
+
+; ------------------------------------------------------------
+; Interrupt Handler
+; ------------------------------------------------------------
+
+INTERRUPT:
+
+    ; Save context
+
+    ; TODO
+
+    ; Dispatch interrupt
+
+    ; TODO
+
+    ; Restore context
+
+    IRET
+
+
+; ------------------------------------------------------------
+; Memory Manager
+; ------------------------------------------------------------
+
+MEMORY_MANAGER:
+
+    ; Allocate memory
+
+    ; TODO
+
+    RET
+
+
+; ------------------------------------------------------------
+; Scheduler
+; ------------------------------------------------------------
+
+SCHEDULER:
+
+    ; Select next process
+
+    ; TODO
+
+    RET
+
+
+; ------------------------------------------------------------
+; File System
+; ------------------------------------------------------------
+
+FILESYSTEM:
+
+    ; Read disk
+
+    ; TODO
+
+    ; Write disk
+
+    ; TODO
+
+    RET
+
+
+; ------------------------------------------------------------
+; Device Manager
+; ------------------------------------------------------------
+
+DEVICE_MANAGER:
+
+    ; Enumerate hardware
+
+    ; TODO
+
+    RET
+
+
+; ------------------------------------------------------------
+; System Call Handler
+; ------------------------------------------------------------
+
+SYSCALL:
+
+    ; Handle software interrupt
+
+    ; TODO
+
+    IRET
+
+
+; ------------------------------------------------------------
+; Kernel Panic
+; ------------------------------------------------------------
+
+PANIC:
+
+    ; Save diagnostic information
+
+    ; TODO
+
+    ; Display error message
+
+    ; TODO
+
+    ; Halt CPU
+
+    HALT
+
+
+; ------------------------------------------------------------
+; Reserved Memory Map
+; ------------------------------------------------------------
+
+; 0000 - Bootloader
+; 0100 - Kernel
+; 0200 - Interrupt Vector
+; 0300 - Device Table
+; 0400 - Process Table
+; 0500 - Heap
+; 8000 - User Programs
+
+
+; ============================================================
+; End of Kernel
+; ============================================================
