@@ -302,7 +302,7 @@ And other types of programs are welcomed into /packages happily
 
 ---
 
-# ~License~
+# **License**
 
 This project is licensed under the MIT License.
 
