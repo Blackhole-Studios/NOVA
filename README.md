@@ -1,8 +1,6 @@
 # NOVA
 NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, but instead a virtual machine. HOWEVER, an OS could be created in the future on the NOVAKernel
 
-# NOVA
-
 <div align="center">
 
 # 🌌 NOVA
