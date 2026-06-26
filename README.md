@@ -18,7 +18,7 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 ![Architecture](https://img.shields.io/badge/Architecture-16--bit-orange)
 ![Assembler](https://img.shields.io/badge/Assembler-Python-yellow)
 ![License](https://img.shields.io/badge/License-MIT-purple)
-![Scratch]
+![Scratch](https://scratch.mit.edu)
 
 </div>
 
@@ -271,7 +271,7 @@ NOVA is designed to be:
 * Educational
 * Fun to hack on
 
-Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions, which allows it to run in Turbowarp (an accelerated modified version of [Scratch](https://scratch.edu.org))
+Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions, which allows it to run in Turbowarp (an accelerated modified version of [Scratch](https://scratch.mit.edu))
 
 ---
 
