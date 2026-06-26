@@ -217,26 +217,28 @@ Jump to Kernel
 ```text
 NOVA/
 ├── Packages/
-│   ├── Unused as of now, this will allow the kernel to install packages like Desktop Environemnts
-│   └── or maybe apps through a scratch attach server to this repository folder.
+│   ├── testpackage
+│   ├── #Unused as of now, this will allow the kernel to install packages like Desktop Environemnts
+│   └── #or maybe apps through a scratch attach server to this repository folder.
 │
 ├── Work Files/
 │   ├── ErrTrace.txt [previous execution call]
 │   ├── boot.dimg [simple boot ROM program]
-│   ├── boot2.dimg [complex boot ROM program]
-│   └── instruction-set.txt 
+│   └── boot2.dimg [complex boot ROM program]
 │
-├── Scratch/
-│   ├── More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
+├── Projects/
+│   ├── #More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
 │   └── NOVA.sb3 [a Turbowarp Project](https://turbowarp.org)
 │
 ├── Kernel/
-│   └── No kernel is currently programmed, but in the future, this is where it'll go
+│   ├── TestKernel
+│   └── #No kernel is currently programmed, but in the future, this is where it'll go
 │
 ├── Documentation/
 │   └── instruction-set.txt 
 │
-├── OustidePrograms/
+├── Programs/
+│   ├── NOVA.html [Compiled turbowarp project]
 │   └── Assembler.py
 │
 └── README.md
