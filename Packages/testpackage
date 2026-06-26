@@ -1,0 +1,63 @@
+#        NOVA PACKAGE FILE (.pkg)        #
+#           PACKAGE NAME SHORT           #
+author: (usr _ usr@email.service) or (usr _ scratchAccount)
+
+//list depenencies below
+
+dep.start
+no dependicenies for this pkg
+
+dep.end
+
+# -----------------------------------------
+# Package Information
+# -----------------------------------------
+
+Package Name : Test Package
+Package ID   : com.nova.test-package
+Version      : 0.1.0
+Author       : Blackhole Studios
+License      : MIT
+
+# ----------------------------------------------------------
+# Description
+# ----------------------------------------------------------
+
+This file exists only as an example package for the NOVA
+repository. It contains no executable code and is safe to
+delete or replace.
+
+Use this file as a reference when creating your own packages.
+
+# ----------------------------------------------------------
+# Future Metadata
+# ----------------------------------------------------------
+
+Entry Point : testpackage
+Dependencies : dep.start
+Required NOVA Version : 1.0
+Requested Permissions : NONE
+Package Icon : NONE
+Startup Arguments : NONE
+# Digital Signature : PGP
+# Package Checksum : FALSE
+
+# ----------------------------------------------------------
+# Notes
+# ----------------------------------------------------------
+
+# Packages are intended to be portable.
+# All executables should be assembled machine code. - OR THE OPERATING SYSTEM'S EXE
+# Assets may include images, fonts, audio, or data files. OR rely on dependencies
+# Future versions may support automatic installation.
+
+# ----------------------------------------------------------
+# Status
+# ----------------------------------------------------------
+
+This package is intentionally empty.
+
+No executable code has been included.
+
+End of file.
+HALT
