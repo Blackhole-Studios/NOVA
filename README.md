@@ -222,6 +222,8 @@ NOVA/
 │
 ├── Work Files/
 │   ├── ErrTrace.txt [previous execution call]
+│   ├── boot.dimg [simple boot ROM program]
+│   ├── boot2.dimg [complex boot ROM program]
 │   └── instruction-set.txt 
 │
 ├── Scratch/
@@ -234,9 +236,8 @@ NOVA/
 ├── Documentation/
 │   └── instruction-set.txt 
 │
-├── Programs/
-│   ├── boot.dimg [simple boot ROM program]
-│   └── boot2.dimg [complex boot ROM program]
+├── OustidePrograms/
+│   └── Assembler.py
 │
 └── README.md
 ```
