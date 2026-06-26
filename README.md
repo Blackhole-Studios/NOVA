@@ -1,5 +1,5 @@
 # NOVA
-NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, but instead a virtual machine
+NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, but instead a virtual machine. HOWEVER, an OS could be created in the future on the NOVAKernel
 
 # NOVA
 
@@ -18,7 +18,6 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 ![Architecture](https://img.shields.io/badge/Architecture-16--bit-orange)
 ![Assembler](https://img.shields.io/badge/Assembler-Python-yellow)
 ![License](https://img.shields.io/badge/License-MIT-purple)
-![Scratch](https://scratch.mit.edu)
 
 </div>
 
@@ -27,7 +26,7 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 # What is NOVA?
 
 **NOVA** is a complete virtual computer built from scratch inside **Scratch/TurboWarp**.
-**NOVA** also stand for "NEW OPERATIONAL VIRTUAL ARCHITECHTURE" 
+**NOVA** also stand for "New Operational Virtual Assembly" 
 
 Rather than emulating an existing CPU, NOVA introduces an entirely original architecture featuring its own:
 
@@ -63,24 +62,38 @@ Every instruction executed by NOVA is interpreted by a CPU built entirely from S
 # Architecture
 
 ```text
-              +------------------+
-              |     Boot ROM     |
-              +--------+---------+
-                       |
-                       v
-              +------------------+
-              |       CPU        |
-              +--------+---------+
-                       |
-        +--------------+--------------+
-        |              |              |
-        v              v              v
-     Registers       Stack          I/O
-        |                             |
-        +--------------+--------------+
-                       |
-                       v
-                    Virtual RAM
+┌──────────────────────────────────────────────┐
+│                  NOVA Motherboard Layout     │
+│                                              │
+│                                              │
+│                                              │
+│   ┌──┐bootROM                                │
+│┌──│  │                                       │
+││  └──┘            ┌─────────────────┐        │
+││  ┌──────┐        │────────────TIME │        │
+││  │RAM   │        │┌──┐ ┌──────────┐│        │
+│└──│128KB │        ││ST│ │Central   ││        │
+│   │      │────────││AC│ │Processing││        │
+│   │      │ Ram    ││K │ │Unit      ││        │
+│   │      │ Bus    ││  │ │          ││        │
+│   │      │────────│└──┘ └──────────┘│        │
+│   │      │        │ ┌──────────────┐│        │
+│   │      │        │ │REGISTERS (10)││────┐   │
+│   │      │        │ └──────────────┘│    │   │
+│   │      │        └─────────────────┘    │   │
+│   │      │        ┌─────────────────┐    │   │
+│   └──────┘┌───────│DEVICE I/O System│────┘   │
+│     │     │       └─────────────────┘────┐   │
+│     │     │   DEVICE        │    BUSSES  │   │
+│     │     │                 │            │   │
+│     │     │                 │            │   │
+│  ┌─────────┐           ┌────────┐  ┌───────┐ │
+│  │ HDD     │           │USB     │  │WI-FI  │ │
+│  │ 8MB     │           │1MB     │  │       │ │
+│  │         │           │        │  │       │ │
+│  │         │           │        │  │       │ │
+│  └─────────┘           └────────┘  └───────┘ │
+└──────────────────────────────────────────────┘
 ```
 
 ---
@@ -167,7 +180,7 @@ Each behaves like its own hardware device and communicates over a simulated bus.
 
 ---
 
-# ⚙ Boot Process
+# Boot Process
 
 ```text
 Power On
@@ -203,19 +216,20 @@ Jump to Kernel
 
 ```text
 NOVA/
+├── Packages/
+│   ├── Unused as of now, this will allow the kernel to install packages like Desktop Environemnts
+│   └── or maybe apps through a scratch attach server to this repository folder.
 │
 ├── Work Files/
 │   ├── ErrTrace.txt [previous execution call]
 │   └── instruction-set.txt 
 │
 ├── Scratch/
-│   ├── //CPU.
-│   ├── //RAM.
-│   ├── NOVA.sb3 [Turbowarp Project]
-│   └── //BootROM.
+│   ├── More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
+│   └── NOVA.sb3 [a Turbowarp Project](https://turbowarp.org)
 │
 ├── Kernel/
-│   └── No kernel is currently programmed.
+│   └── No kernel is currently programmed, but in the future, this is where it'll go
 │
 ├── Documentation/
 │   └── instruction-set.txt 
@@ -271,7 +285,7 @@ NOVA is designed to be:
 * Educational
 * Fun to hack on
 
-Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions, which allows it to run in Turbowarp (an accelerated modified version of [Scratch](https://scratch.mit.edu))
+Rather than copying x86 or ARM, NOVA is its own architecture with its own design decisions, which allows it to run in [Turbowarp](https://turbowarp.org) (an accelerated modified version of [Scratch](https://scratch.mit.edu))
 
 ---
 
@@ -282,6 +296,7 @@ Contributions, bug reports, feature ideas, and pull requests are welcome.
 If you discover a bug in the CPU, assembler, or operating system, feel free to open an issue.
 
 As well, NOVA wouldn't be impressive unless a community helps to program on the platform, so exterior contributions are welcome and can be pulled into /programs as well as under their working OS.
+And other types of programs are welcomed into /packages happily
 
 ---
 
