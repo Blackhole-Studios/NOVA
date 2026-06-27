@@ -297,8 +297,8 @@ Contributions, bug reports, feature ideas, and pull requests are welcome.
 
 If you discover a bug in the CPU, assembler, or operating system, feel free to open an issue.
 
-As well, NOVA wouldn't be impressive unless a community helps to program on the platform, so exterior contributions are welcome and can be pulled into /programs as well as under their working OS.
-And other types of programs are welcomed into /packages happily
+As well, NOVA wouldn't be impressive unless a community helps to program on the platform, so exterior contributions are welcome and can be pulled into /packages as well as under their working OS.
+And other types of programs for the overall ease of programming (like IDE's or Servers) are welcomed into /programs happily if they are quality.
 
 ---
 
