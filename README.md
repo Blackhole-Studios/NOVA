@@ -61,38 +61,38 @@ Every instruction executed by NOVA is interpreted by a CPU built entirely from S
 # Architecture
 
 ```text
-┌──────────────────────────────────────────────┐
-│                  NOVA Motherboard Layout     │
-│                                              │
-│                                              │
-│                                              │
-│   ┌──┐bootROM                                │
-│┌──│  │                                       │
-││  └──┘            ┌─────────────────┐        │
-││  ┌──────┐        │────────────TIME │        │
-││  │RAM   │        │┌──┐ ┌──────────┐│        │
-│└──│128KB │        ││ST│ │Central   ││        │
-│   │      │────────││AC│ │Processing││        │
-│   │      │ Ram    ││K │ │Unit      ││        │
-│   │      │ Bus    ││  │ │          ││        │
-│   │      │────────│└──┘ └──────────┘│        │
-│   │      │        │ ┌──────────────┐│        │
-│   │      │        │ │REGISTERS (10)││────┐   │
-│   │      │        │ └──────────────┘│    │   │
-│   │      │        └─────────────────┘    │   │
-│   │      │        ┌─────────────────┐    │   │
-│   └──────┘┌───────│DEVICE I/O System│────┘   │
-│     │     │       └─────────────────┘────┐   │
-│     │     │   DEVICE        │    BUSSES  │   │
-│     │     │                 │            │   │
-│     │     │                 │            │   │
-│  ┌─────────┐           ┌────────┐  ┌───────┐ │
-│  │ HDD     │           │USB     │  │WI-FI  │ │
-│  │ 8MB     │           │1MB     │  │       │ │
-│  │         │           │        │  │       │ │
-│  │         │           │        │  │       │ │
-│  └─────────┘           └────────┘  └───────┘ │
-└──────────────────────────────────────────────┘
+┌────────────────────────────────────────────────┐
+│                  NOVA Motherboard Layout       │
+│                                                │
+│                                                │
+│                                                │
+│   ┌──┐bootROM                                  │
+│┌──│  │                                         │
+││  └──┘            ┌─────────────────┐          │
+││  ┌──────┐        │────────────TIME │          │
+││  │RAM   │        │┌──┐ ┌──────────┐│          │
+│└──│128KB │        ││ST│ │Central   ││          │
+│   │      │────────││AC│ │Processing││          │
+│   │      │ Ram    ││K │ │Unit      ││          │
+│   │      │ Bus    ││  │ │          ││          │
+│   │      │────────│└──┘ └──────────┘│          │
+│   │      │        │ ┌──────────────┐│          │
+│   │      │        │ │REGISTERS (10)││────┐     │
+│   │      │        │ └──────────────┘│    │     │
+│   │      │        └─────────────────┘    │     │
+│   │      │        ┌─────────────────┐    │     │
+│   └──────┘┌───────│DEVICE I/O System│────┘     │
+│     │     │       └─────────────────┘────┐     │
+│     │     │   DEVICE        │    BUSSES  │     │
+│     │     │                 │            │     │
+│     │     │                 │            │     │
+│  ┌─────────┐           ┌────────┐  ┌───────┐   │
+│  │ HDD     │           │USB     │  │WI-FI  │   │
+│  │ 8MB     │           │1MB     │  │       │   │
+│  │         │           │        │  │       │   │
+│  │         │           │        │  │       │   │
+│  └─────────┘           └────────┘  └───────┘   │
+└────────────────────────────────────────────────┘
 ```
 
 ---
@@ -215,30 +215,36 @@ Jump to Kernel
 
 ```text
 NOVA/
+├── .github/
+│   └── worflows
+│       └── main.yml (Auto Pull Validator/rejector for packages)
+│
+├── Documentation/
+│   ├── ISA.md
+│   ├── Packages.md
+│   └── instruction-set.txt 
+│
+├── Kernels/
+│   ├── testKernel
+│   └── #No kernel is currently programmed, but in the future, this is where it'll go, the one present is a placeholder
+│
 ├── Packages/
 │   ├── testpackage
 │   ├── #Unused as of now, this will allow the kernel to install packages like Desktop Environemnts
 │   └── #or maybe apps through a scratch attach server to this repository folder.
 │
-├── Work Files/
-│   ├── ErrTrace.txt [previous execution call]
-│   ├── boot.dimg [simple boot ROM program]
-│   └── boot2.dimg [complex boot ROM program]
+├── Programs/
+│   ├── NOVA.html [Compiled turbowarp project]
+│   └── Assembler.py
 │
 ├── Projects/
 │   ├── #More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
 │   └── NOVA.sb3 [a Turbowarp Project](https://turbowarp.org)
 │
-├── Kernel/
-│   ├── TestKernel
-│   └── #No kernel is currently programmed, but in the future, this is where it'll go
-│
-├── Documentation/
-│   └── instruction-set.txt 
-│
-├── Programs/
-│   ├── NOVA.html [Compiled turbowarp project]
-│   └── Assembler.py
+├── Work Files/
+│   ├── ErrTrace.txt [previous execution call]
+│   ├── boot.dimg [simple boot ROM program]
+│   └── boot2.dimg [complex boot ROM program]
 │
 └── README.md
 ```
