@@ -18,20 +18,20 @@ The CPU can only read and write entire registers.
 
 | Opcode | Instruction    | Description                                  |
 | -----: | -------------- | -------------------------------------------- |
-|      1 | `MOV A B`      | Copy register `A` into register `B`.         |
-|      2 | `MOVI A int`   | Load an immediate integer into register `A`. |
-|      3 | `READ addr A`  | Read RAM at `addr` into register `A`.        |
-|      4 | `STORE A addr` | Store register `A` into RAM at `addr`.       |
-|      5 | `PUSH A`       | Push register `A` onto the stack.            |
-|      6 | `POP A`        | Pop the stack into register `A`.             |
+|     01 | `MOV A B`      | Copy register `A` into register `B`.         |
+|     02 | `MOVI A int`   | Load an immediate integer into register `A`. |
+|     03 | `READ addr A`  | Read RAM at `addr` into register `A`.        |
+|     04 | `STORE A addr` | Store register `A` into RAM at `addr`.       |
+|     05 | `PUSH A`       | Push register `A` onto the stack.            |
+|     06 | `POP A`        | Pop the stack into register `A`.             |
 
 ## MATH
 
 | Opcode | Instruction | Description                    |
 | -----: | ----------- | ------------------------------ |
-|      7 | `ADD A B`   | `A = A + B`                    |
-|      8 | `SUB A B`   | `A = A - B`                    |
-|      9 | `MUL A B`   | `A = A × B`                    |
+|     07 | `ADD A B`   | `A = A + B`                    |
+|     08 | `SUB A B`   | `A = A - B`                    |
+|     09 | `MUL A B`   | `A = A × B`                    |
 |     10 | `DIV A B`   | `A = A ÷ B` (integer division) |
 |     11 | `MOD A B`   | `A = A % B`                    |
 
