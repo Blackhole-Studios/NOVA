@@ -1,49 +1,36 @@
-#        NOVA PACKAGE FILE (.pkg)        #
-#           PACKAGE NAME SHORT           #
-author: (usr _ usr@email.service) or (usr _ scratchAccount)
+NAME='testpackage'
+VERSION=1.2
+AUTHOR='&Blackhole-Studios&'
 
-//list depenencies below
-
-dep.start
-no dependicenies for this pkg
-
-dep.end
+# NOVA PACKAGE FILE (.pkg) #
+#      Test Package~~      #
 
 # -----------------------------------------
-# Package Information
+# Package Information (will not be read by parser)
 # -----------------------------------------
 
-Package Name : Test Package
-Package ID   : com.nova.test-package
-Version      : 0.1.0
-Author       : Blackhole Studios
-License      : MIT
+#Package Name : Test Package
+#Version      : 0.1.2
+#Author       : Blackhole Studios, Scratch username 'Blakhole-Games'
+
+#This package is intentionally mostly empty.
+
+#No executable code has been included, only psudocode.
+
 
 # ----------------------------------------------------------
-# Description
+# Description (will not be read by parser)
 # ----------------------------------------------------------
 
-This file exists only as an example package for the NOVA
-repository. It contains no executable code and is safe to
-delete or replace.
+#This file exists only as an example package for the NOVA
+#repository. It contains no executable code and is safe to
+#delete or replace.
 
-Use this file as a reference when creating your own packages.
+#Use this file as a reference when creating your own packages, and please include a desc for your packages, as they describe what your package does
 
-# ----------------------------------------------------------
-# Future Metadata
-# ----------------------------------------------------------
-
-Entry Point : testpackage
-Dependencies : dep.start
-Required NOVA Version : 1.0
-Requested Permissions : NONE
-Package Icon : NONE
-Startup Arguments : NONE
-# Digital Signature : PGP
-# Package Checksum : FALSE
 
 # ----------------------------------------------------------
-# Notes
+# Notes (will not be read by parser)
 # ----------------------------------------------------------
 
 # Packages are intended to be portable.
@@ -51,13 +38,31 @@ Startup Arguments : NONE
 # Assets may include images, fonts, audio, or data files. OR rely on dependencies
 # Future versions may support automatic installation.
 
+
 # ----------------------------------------------------------
-# Status
+# Actual Executable (the following WOULD be read as some lines aren't commented out, like LN48, LN50, LN55 ... LN63, LN67)
 # ----------------------------------------------------------
 
-This package is intentionally empty.
+#list depenencies below
 
-No executable code has been included.
+dep.start
+#no dependicenies for this pkg
+dep.end
 
-End of file.
+
+#list install code below
+
+exe.start
+#there is no code to install
+exe.end
+
+
+
+install dependencies > dep.start
+install exe > exe.start
+enter > /bin/s/testpackage
+
+#End of file.
+
 HALT
+# halt to ensure a failure to install/enter does not result in a kernel panic
