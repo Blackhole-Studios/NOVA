@@ -213,6 +213,7 @@ Jump to Kernel
 
 # Repository Structure
 
+Not all files are exact, esp Packages in the future, that won't be updated with each new package, it'll stay as is
 ```text
 NOVA/
 ├── .github/
