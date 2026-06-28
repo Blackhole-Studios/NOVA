@@ -13,6 +13,32 @@ Flags:
 The CPU can only read and write entire registers.
 
 ---
+## Loops
+
+while in and of itself, the ISA does NOT support loops in an easy sense, they are totally possible, a valid script directly in ASM is:
+```text
+MOVI A 0
+MOVI B 4
+ NOP
+ ADD A 1
+ CMP A B
+JL 3
+# Following code
+```
+This above code withh repeat the indented sectior 4 times (one on initital, the ``JL 3`` repeated 3 times)
+
+As well, the Compiler works much better, this is valid code to do the same thing:
+```text
+MOVI A 0
+MOVI B 4
+loop:
+ADD A 1
+CMP A B
+JL loop
+# Following code
+```
+
+---
 
 ## DATA
 
