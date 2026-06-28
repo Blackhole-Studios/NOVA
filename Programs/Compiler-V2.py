@@ -1,6 +1,15 @@
 import re
 from pathlib import Path
 
+# ================================================================================================
+# ::                                                                                            ::
+# ::           NOVA COMPILER V2.0 :: Nova Assembly HIGH to Nova MAC [BASE 10 BINARY]            ::
+# ::                                                                                            ::
+# ::  This is Version 2 of the Compiler, it is a complete rewrite of the original Compiler.py   ::
+# ::                                                                                            ::
+# ================================================================================================
+
+
 ## TODO: ##
 # Add more complex premade operations like 'IF()'
 # Load programs from Files
@@ -23,14 +32,6 @@ from pathlib import Path
 ## Y search for all opcodes and replace them with the correct hex value, eg: MOVI -> 02, NOP -> 00, etc
 ## Y Remove all spaces
 # Y write code list to output
-
-# ================================================================================================
-# ::                                                                                            ::
-# ::           NOVA COMPILER V2.0 :: Nova Assembly HIGH to Nova MAC [BASE 10 BINARY]            ::
-# ::                                                                                            ::
-# ::  This is Version 2 of the Compiler, it is a complete rewrite of the original Compiler.py   ::
-# ::                                                                                            ::
-# ================================================================================================
 
 # V User Options V
 
