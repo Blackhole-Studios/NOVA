@@ -27,25 +27,52 @@ MOVI B 4
 JL 3
 # Following code
 ```
-This above code withh repeat the indented sectior 4 times (one on initital, the ``JL 3`` repeated 3 times)
+This above code withh repeat the indented sectior 4 times (one on initital, the ``JL 3`` repeated 3 times, a base REPEAT (X) loop)
 
 As well, the Compiler works much better, this is valid code to do the same thing:
 ```code
 MOVI A 0
 MOVI B 4
+MOVI D 1
 loop:
-ADD A 1
+ADD A D
 CMP A B
 JL loop
 # Following code
 ```
+This above script is a FOR loop, here's a WHILE loop:
+```code
+MOVI A 0
+MOVI B 5
+MOVI C 1
+loop:
+CMP A B
 
-In the following versions, we will hopefully have compacted 'ifs', IE: this should be valid code:
+JG end
+; Code goes here
+; compuation +_+
+ADD A C
+JMP loop
+
+end:
+```
+
+Obviously an infinite loop, don't use, unless like for the Kernel, a script that SHOULD NOT END
+```code
+loop:
+
+;code +_+
+
+JMP loop
+```
+
+In the following versions, we will hopefully have compacted 'ifs' supported/in the compiler, IE: this should be valid code:
 ```code
 MOVI A 0
 MOVI B 4
+MOVI D 1
 loop:
-ADD A 1
+ADD A D
 IF A < B: loop
 # Following code
 ```
