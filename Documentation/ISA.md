@@ -4,11 +4,11 @@
 
 The CPU contains 10 general-purpose registers:
 
-`A B C D E f g h i j`
+`A B C D E F G H I J`
 
 Flags:
 
-`Z` (Zero), `G` (Greater), `L` (Less)
+ `G` (Greater), `Z` (Zero), `L` (Less)
 
 The CPU can only read and write entire registers.
 
@@ -29,11 +29,11 @@ The CPU can only read and write entire registers.
 
 | Opcode | Instruction | Description                    |
 | -----: | ----------- | ------------------------------ |
-|     07 | `ADD A B`   | `A = A + B`                    |
-|     08 | `SUB A B`   | `A = A - B`                    |
-|     09 | `MUL A B`   | `A = A × B`                    |
-|     10 | `DIV A B`   | `A = A ÷ B` (integer division) |
-|     11 | `MOD A B`   | `A = A % B`                    |
+|     07 | `ADD A B`   | register `A = A + B`           |
+|     08 | `SUB A B`   | register `A = A - B`           |
+|     09 | `MUL A B`   | register `A = A × B`           |
+|     10 | `DIV A B`   | register `A = A ÷ B` (integer division FLOOR) |
+|     11 | `MOD A B`   | register  `A = A % B`             |
 
 ## LOGIC
 
@@ -49,7 +49,7 @@ The CPU can only read and write entire registers.
 | Opcode | Instruction | Description                      |
 | -----: | ----------- | -------------------------------- |
 |     16 | `JMP A`     | Jump to address in register `A`. |
-|     17 | `JZ A`      | Jump if `Z` flag is set.         |
+|     17 | `JZ A`      | Jump if `Z` flag is set to REG `A` |
 |     18 | `JNZ A`     | Jump if `Z` flag is clear.       |
 |     19 | `JG A`      | Jump if `G` flag is set.         |
 |     20 | `JL A`      | Jump if `L` flag is set.         |
