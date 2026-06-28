@@ -86,31 +86,27 @@ def assemble(program_text):
 # example usage
 if __name__ == "__main__":
     program = """
-MOVI 1 0
-MOVI 2 0
-MOVI 3 999
-MOVI 4 1
-MOVI 5 50
-MOVI 6 0
-MOVI 7 0
-MOVI 8 0
-MOVI 9 0
-MOVI 0 0
+    MOVI 1 0
+    NOP
+    MOVI 3 9
+    NOP
+    INC 1
+    CMP 1 3
+    JG 19
+    MOVI 2 1
 
-READ 2 6
-CMP 6 0
-JZ SAFE
+    NOP
+    NOP
 
-MOVI 7 1
-STORE 7 100
-STORE 6 101
-STORE 3 102
-STORE 1 103
-STORE 2 104
-HALT
-
-Safe:
-JMP 20
+    MOVI 3 0
+    CMP 1 3
+    JZ 17
+    NOP
+    HALT
+    NOP
+    JMP 4
+    NOP
+    HALT
     """
 
     machine = assemble(program)
