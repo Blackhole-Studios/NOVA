@@ -78,7 +78,7 @@ class Compiler:
 
     def clean(self, code):
         out = []
-
+        
         for line in code.splitlines():
             line = line.strip()
             if not line:
@@ -103,6 +103,18 @@ class Compiler:
 
             out.append(line)
 
+        codelines = out.splitlines()
+        while i < len(codelines):
+            if codelines[i].contains("jmp", "jz", "jnz", "jg", "jl", "JMP", "JZ", "JNZ", "JG", "JL"):
+                art = codelines[i].split()
+                op = art[0]
+                a = art[1]
+                if not a in REGISTERS:
+                    if a.isnumerical():
+                        out.insert(i-1, f"MOVI J {a}")
+                    else:
+                        out.insert(i-1, "")
+
         return out
 
     def pass_labels(self, lines):
@@ -113,12 +125,28 @@ class Compiler:
             else:
                 pc += 1
 
+    def expand(self, lines):
+        pc = -1
+        while pc<len(lines):
+            pc += 1
+            parts = line.split()
+            op = parts[0]
+            if op in ("jmp", "jz", "jnz", "jg", "jl", "JMP", "JZ", "JNZ", "JG", "JL"):
+                a = parts[1]
+                b = parts[2]
+                # expand if lines are larger
+                # replace the jmp w/ JMP J
+                lines[pc+1] = f"{op} J"
+                #  ins the movi BEFORE
+                target = self.labels[a]
+                lines[pc] = f"MOVI J {target + 1:02d}" 
+                
     def encode(self, line):
         parts = line.split()
-
+        
         op = parts[0]
 
-        # jmp loop
+        # jmp family blocks
         if op in ("jmp", "jz", "jnz", "jg", "jl", 
                   "JMP", "JZ", "JNZ", "JG", "JL"):
             if debug:
@@ -126,24 +154,23 @@ class Compiler:
             if self.labels.get(parts[1]) is None:
                 if parts[1] in REGISTERS:
                     return OPCODES[op] + REGISTERS[parts[1]]
+                else:
+                    print("JMP Commands need a valid location, are you sure you A: are asking for a valid register, or B: have spelled the label correctly")
             else:
                 target = self.labels[parts[1]]
-                return OPCODES["jmp"] + f"{target + 1:02d}"
+                return OPCODES[op] + f"{target + 1:02d}"
 
         # 2 operand ops
         if op in ("add", "cmp", "mov", "sub", "mul", "div", "mod", "and", "or", "read", "store", "int", "in",
                   "ADD", "CMP", "MOV", "SUB", "MUL", "DIV", "MOD", "AND", "OR", "READ", "STORE", "INT", "IN"):
             if debug:
                 print(f"Encoding: {line}")
-            return (
-                OPCODES[op] + REGISTERS[parts[1]] + REGISTERS[parts[2]]
-            )
+            return (OPCODES[op] + REGISTERS[parts[1]] + REGISTERS[parts[2]])
 
         #because MOVI is special
         if op in ("movi", "MOVI"):
             if debug:
                 print(f"Encoding: {line}")
-
             # return an actual number if the label doesn't exist, otherwise return the label's address, to allow for MOVI- CALL-
             if self.labels.get(parts[2]) is None:
                 return OPCODES[op] + REGISTERS[parts[1]] + parts[2]
@@ -175,6 +202,7 @@ class Compiler:
     def compile(self, code):
         lines = self.clean(code)
         self.pass_labels(lines)
+        self.expand(lines)
         
         count = 0
         output = []
@@ -198,105 +226,23 @@ class Compiler:
         return "\n".join(runtime)
 
 code = """
-; NOVA CPU VALIDATION TEST
+; Executable Code in Assembly
+; Run this program to see what returns (it should just be 1 line of 2700)
 
-; ---- Register setup (don't use more than 5 just in case) ----
-
-MOVI A 5
-MOVI B 10
-MOVI C 15
-MOVI D 20
-MOVI E 25
-
-; ---- Memory Load test W/ Register ABCDEF ----
-
-MOVI F 100
-STORE A F
-MOVI F 101
-STORE B F
-MOVI F 102
-STORE C F
-MOVI F 103
-STORE D F
-MOVI F 104
-STORE E F
-
-; ---- Memory read test  W/ Register EFGHIJ----
-
-MOVI E 100
-READ E F
-MOVI E 101
-READ E G
-MOVI E 102
-READ E H
-MOVI E 103
-READ E I
-MOVI E 104
-READ E J
-
-; ---- MOV ----
-
-MOV A J
-MOV J A
-
-; ---- Arithmetic ----
-
-ADD A B
-SUB C B
-MUL D B
-DIV E B
-MOD F G
-
-; ---- Stack ----
-
-PUSH A
-PUSH B
-PUSH C
-PUSH D
-
-POP D
-POP C
-POP B
-POP A
-; nothing should be changed in the registers if the stack is working properly
-
-; ---- CALL TEST ----
-
-MOVI F subroutine
-CALL F
-
-; ---- Loop ----
-
-MOVI E 0
-MOVI F 10
-
-loop:
-INC E
-CMP E F
-JL G
-
-; ---- Greater Than ----
-
-CMP F E
-JG J
-
-; ---- Equal ----
-
-CMP E F
-JZ I
+# The following code is commented out, except for HALT
+# start:
+# MOVI A 1 (store 1 in Register A)
+# MOVI B 6 (store 2 in Register B)
+# CMP A B (set the flags to (is A > B?), (is A == B?), (is A < B?), in the first loop, 1 < 6, so we get TFF, or 100 in binary)
+# INC A (increment register A by 1, use ADD and MOVI for larger increments)
+# JNZ start (IF: the flags (a>==<b) are NOT 0, ie: A>B || A<B, then Jump to: start)
 
 HALT
-
-; SUBROUTINE
-
-subroutine:
-INC A
-INC B
-RET
 """
 
-debug = False # SET TO FALSE BEFORE COMMITTING (works fine just ugly output)
+debug = False # SET TO FALSE BEFORE COMMITTING, this lists all processed commands, if you see an error, it prints the line that failed before the failure
 
+# this is the exiter, processes everything
 c = Compiler()
 final = c.compile(code)
 worked = True
