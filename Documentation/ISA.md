@@ -5,6 +5,8 @@
 The CPU contains 10 general-purpose registers:
 
 `A B C D E F G H I J`
+This is how both Compilers store them, and the Register's real names, However:
+in the runtime env, it's `1 2 3 4 5 6 7 8 9 10`, the Compiler simply maps them and subtracts 1 (because 10 cannot be passed in as a valid register, 1 is added once processed)
 
 Flags:
 
