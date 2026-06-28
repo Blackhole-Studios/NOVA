@@ -3,7 +3,7 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 
 <div align="center">
 
-# 🌌 NOVA
+# 🌌 (Super)NOVA
 
 ### *A Virtual Computer Architecture Built Entirely in Scratch*
 
