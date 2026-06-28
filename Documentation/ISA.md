@@ -38,6 +38,17 @@ JL loop
 # Following code
 ```
 
+In the following versions, we will hopefully have compacted 'ifs', IE: this should be valid code:
+```code
+MOVI A 0
+MOVI B 4
+loop:
+ADD A 1
+IF A < B: loop
+# Following code
+```
+if you know my previous languages like [Amberscript](https://github.com/ItsGraphax/Amberscript), you'll see that I love one line IFs.
+
 ---
 
 ## DATA
