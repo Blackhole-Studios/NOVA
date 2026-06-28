@@ -13,7 +13,7 @@ NOVA - New Operational Virtual Assembly. Nova is a Turbowarp based VM, not OS, b
 
 ![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen)
 ![Language](https://img.shields.io/badge/Language-NOVASM-blue)
-![Architecture](https://img.shields.io/badge/Architecture-16--bit-orange)
+![Architecture](https://img.shields.io/badge/Architecture-50--bit-orange)
 ![Assembler](https://img.shields.io/badge/Assembler-Python-yellow)
 ![License](https://img.shields.io/badge/License-MIT-purple)
 ![Made In](https://img.shields.io/badge/Environment-Turbowarp-maroon)
