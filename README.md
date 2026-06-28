@@ -236,7 +236,7 @@ NOVA/
 │
 ├── Programs/
 │   ├── NOVA.html [Compiled turbowarp project]
-│   └── Assembler.py
+│   └── Assembler(s).py (multiple, like -strong, -ASMtoMAC, -. which are used for specific tasks)
 │
 ├── Projects/
 │   ├── #More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
