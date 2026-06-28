@@ -20,8 +20,8 @@ The CPU can only read and write entire registers.
 | -----: | -------------- | -------------------------------------------- |
 |     01 | `MOV A B`      | Copy register `A` into register `B`.         |
 |     02 | `MOVI A int`   | Load an immediate integer into register `A`. |
-|     03 | `READ addr A`  | Read RAM at `addr` into register `A`.        |
-|     04 | `STORE A addr` | Store register `A` into RAM at `addr`.       |
+|     03 | `READ B A`     | Read RAM at address `B` into register `A`.        |
+|     04 | `STORE A B`    | Store register `A` into RAM at address from register `B`.       |
 |     05 | `PUSH A`       | Push register `A` onto the stack.            |
 |     06 | `POP A`        | Pop the stack into register `A`.             |
 
