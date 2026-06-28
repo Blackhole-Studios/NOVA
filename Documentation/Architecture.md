@@ -8,7 +8,7 @@ The CPU is About your cpu's GHZ but in KHZ, for example, my CPU is 3.3 GHZ, so m
 
 The CPU Executes 4 steps per cycle:
 1.  Increment Program Counter by 1
-2.   Pull the Executed line from RAM
+2.   Pull the Executed line from RAM (if Program Counter is say, 32, we execute cell 32 in ram as a command. A common source of errors is the CPU 'jailbreaking' and running into data rather than straight machine code) 
 3.   Parse the Line
 4.   1.  Execute the Line
      2.  Check OP Code with THE IF
