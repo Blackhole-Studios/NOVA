@@ -46,8 +46,6 @@ def assemble_line(line):
     op = parts[0]
     opcode = OPCODES.get(op)
 
-    #if 
-
     if opcode is None:
         raise ValueError(f"Unknown opcode: {op}")
 
