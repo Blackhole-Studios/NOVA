@@ -113,3 +113,6 @@ if __name__ == "__main__":
 
     for m in machine:
         print(m)
+        #    ~B = IN A READ B 8
+    #        ~B = IN A READ B 0
+        # ~BOOT Sector B on Device A
