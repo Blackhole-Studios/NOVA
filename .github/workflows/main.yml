@@ -34,9 +34,9 @@ jobs:
         run: |
           python .github/validate.py
 
-      - name: Enable Auto Merge
-        if: success()
-        uses: peter-evans/enable-pull-request-automerge@v3
+      - name: Merge Pull Request
+        if: success() && github.event.pull_request.head.repo.full_name == github.repository
+        uses: peter-evans/merge-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           merge-method: squash
