@@ -46,6 +46,14 @@ DEBUG_MODE = True # prints a snapshot of each step to find errors in your code, 
 user_code = """
 
 # enter code below
+MOVI A 0
+MOVI B 10000
+
+loop:
+INC A
+CMP A B
+JL loop
+
 HALT
 """
 # code state: js kinda stops
