@@ -1,3 +1,4 @@
+## This File is slightly outdated. Please use the [up to date, ISA.md](/Documentation/ISA.md) for proper documentation
 first is to discuss the Registers, the CPU can only read/write to full registers, there are 10 registers w/ names 'A', 'B', 'C', 'D', 'E', 'f', 'g', 'h', 'i', 'j' (lowercase == left, uppercase == right~~)
 with flags Z, G, L
 and RAM
