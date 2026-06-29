@@ -1,6 +1,15 @@
 import re
 from pathlib import Path
 
+# ================================================================================================
+# ::                                                                                            ::
+# ::           NOVA COMPILER V2.0 :: Nova Assembly HIGH to Nova MAC [BASE 10 BINARY]            ::
+# ::                                                                                            ::
+# ::  This is Version 2 of the Compiler, it is a complete rewrite of the original Compiler.py   ::
+# ::                                                                                            ::
+# ================================================================================================
+
+
 ## TODO: ##
 # Add more complex premade operations like 'IF()'
 # Load programs from Files
@@ -24,14 +33,6 @@ from pathlib import Path
 ## Y Remove all spaces
 # Y write code list to output
 
-# ================================================================================================
-# ::                                                                                            ::
-# ::           NOVA COMPILER V2.0 :: Nova Assembly HIGH to Nova MAC [BASE 10 BINARY]            ::
-# ::                                                                                            ::
-# ::  This is Version 2 of the Compiler, it is a complete rewrite of the original Compiler.py   ::
-# ::                                                                                            ::
-# ================================================================================================
-
 # V User Options V
 
 # if using copy/paste, program/paste your assembly below read 
@@ -46,14 +47,6 @@ DEBUG_MODE = True # prints a snapshot of each step to find errors in your code, 
 user_code = """
 
 # enter code below
-MOVI A 0
-MOVI B 10000
-
-loop:
-INC A
-CMP A B
-JL loop
-
 HALT
 """
 # code state: js kinda stops
