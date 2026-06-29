@@ -32,7 +32,7 @@ jobs:
           GITHUB_USER: ${{ github.event.pull_request.user.login }}
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
         run: |
-          python .github/scripts/validate.py
+          python .github/validate.py
 
       - name: Enable Auto Merge
         if: success()
