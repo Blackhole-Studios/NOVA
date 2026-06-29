@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+print("test")
 import os
 import re
 import subprocess
@@ -11,7 +11,7 @@ GITHUB_USER = os.getenv("GITHUB_USER")
 if GITHUB_USER is None:
     print("No GitHub username found.")
     sys.exit(1)
-
+print(f"Git USR: {GITHUB_USER}")
 
 def fail(msg):
     print(f"ERROR: {msg}")
