@@ -141,10 +141,10 @@ if you know my previous languages like [Amberscript](https://github.com/ItsGraph
 
 ### Notes
 
-1. **CMP:** Sets flags to `100` (`A>B`), `010` (`A=B`), or `001` (`A<B`). Refer to **Flags**.
+1. **CMP:** Sets flags to `100` (`A>B`), `010` (`A=B`), or `001` (`A<B`).
 
-2. **Bitwise Operations:** `AND`, `OR`, and `NOT` operate on the binary representation of the register values. Refer to **Bitwise Operations**.
+2. **Bitwise Operations:** `AND`, `OR`, and `NOT` operate on the binary representation of the register values.
 
-3. **INT:** Equivalent to saving the current execution context (`PC`, flags, and registers) before jumping to the interrupt handler. Refer to **Interrupts**.
+3. **INT:** Equivalent to saving the current execution context (`PC`, flags, and registers) before jumping to the interrupt handler.
 
-4. **IN:** Interfaces with hardware devices (disk, keyboard, timer, etc.). No standard devices are currently implemented. Refer to **Device Bus Specification**.
+4. **IN:** Interfaces with hardware devices (disk, keyboard, timer, etc.). No standard devices are currently implemented.

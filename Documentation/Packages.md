@@ -13,6 +13,7 @@ Think of the package manager like a restaurant.
 * The **ScratchAttach server** is the chef.
 * A **package** is a prepared meal.
 * The package's **code** is its ingredients.
+* This **repository** is the pantry
 
 When a user requests a package, `pkg.sh` asks the ScratchAttach server whether the package exists. If it does, the server sends the package back to the operating system, where it is installed.
 

@@ -1,3 +1,8 @@
+This header was added AFTER creation. This is an example of the LOG the CPU outputs. 
+It logs the PC, OPC, VA, VB, what it read (issues with parser?), CMPs, and the 2 values, and Jumps.
+This log was taken from an accidental infinite loop (until Turbowarp automatically killed the Process @ like 4483 lines executed)
+---------------------------------------------------------------
+
 RAN COMMAND {{ Actual Command: 02153} -- 02 + 1 + 53 @ PC @ 0}
 RAN COMMAND {{ Actual Command: 02153} -- 02 + 1 + 53 @ PC @ 1}
 RAN COMMAND {{ Actual Command: 022100} -- 02 + 2 + 100 @ PC @ 2}

@@ -140,8 +140,9 @@ Compiled machine code:
 0412
 0323
 1213
-180
-27
+0290
+189
+2700
 ```
 
 ---
@@ -221,6 +222,8 @@ NOVA/
 │       └── main.yml (Auto Pull Validator/rejector for packages)
 │
 ├── Documentation/
+│   ├── Architecture.md
+│   ├── ErrorTrace.txt
 │   ├── ISA.md
 │   ├── Packages.md
 │   └── instruction-set.txt 
@@ -242,10 +245,10 @@ NOVA/
 │   ├── #More projects soon, like a scratch version of my ASSEMBLER along with an IDE?
 │   └── NOVA.sb3 [a Turbowarp Project](https://turbowarp.org)
 │
-├── Work Files/
-│   ├── ErrTrace.txt [previous execution call]
-│   ├── boot.dimg [simple boot ROM program]
-│   └── boot2.dimg [complex boot ROM program]
+├── Scripts/
+│   ├── StressTest.dimg [stress tester for HZ]
+│   ├── testscript.dimg [simple loop in MAC]
+│   └── BootloaderAttempt.dimg [attempt at a boot ROM program]
 │
 └── README.md
 ```

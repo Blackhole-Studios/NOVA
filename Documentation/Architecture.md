@@ -6,11 +6,13 @@ There's a rough diagram in ASCII made in ASCII ART STUDIO, but for text based re
 The CPU computes 4 steps per 'cycle', on moderate hardware (My PC, an i7-4790k w/ 16gb DDR3) it should complete around 3000 cycles a second in Turbowarp (THANK YOU GARBOMUFFIN FOR OPTIMIZATION)
 The CPU is About your cpu's GHZ but in KHZ, for example, my CPU is 3.3 GHZ, so my simulation runs at 3.3 KHZ, my laptop @ 1.6 KHZ does quite worse at about 1.2KHZ, but in that range.
 
+> EDIT: ignore that above statistic, I ran another benchmark, and got an eyewatering 20KHZ, this works by turning OFF the compiler, as if not, it caps at 3k executed lines
+
 The CPU Executes 4 steps per cycle:
 1.  Increment Program Counter by 1
 2.   Pull the Executed line from RAM (if Program Counter is say, 32, we execute cell 32 in ram as a command. A common source of errors is the CPU 'jailbreaking' and running into data rather than straight machine code) 
 3.   Parse the Line
-4.   1.  Execute the Line
+4.   1.  Execute the Line:
      2.  Check OP Code with THE IF
      3.  Execute the OPIF if applicable (ie: the `CMP` command runs an IF statement inside of it's executing area, which makes it slower than other)
      4.  Store the result/do the modify (ie: the `ADD` command needs to Write to a register)
